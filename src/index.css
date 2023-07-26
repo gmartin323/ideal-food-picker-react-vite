@@ -27,3 +27,7 @@ input[type=text]:focus ,textarea:focus{
   border: 1px solid #555;
   transition: .5s;
 }
+
+.selected {
+  color: red
+}
