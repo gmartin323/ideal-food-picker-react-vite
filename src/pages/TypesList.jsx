@@ -1,9 +1,10 @@
 import React from "react";
-import Type from "./Type";
+import { Link } from "react-router-dom"
+import Option from "./Option";
 import { getTypes } from "../firebase";
 import SelectBtn from "../components/SelectBtn";
 
-export default function TypesList(props) {
+export default function TypesList() {
   const [typesState, setTypesState] = React.useState([])
   const [loading, setLoading] = React.useState(false)
   const [error, setError] = React.useState(null)
@@ -25,11 +26,11 @@ export default function TypesList(props) {
     loadTypes()
 }, [])
 
-  const types = typesState.map(type => {
+  const types = typesState.map(item => {
     return (
-            <Type 
-              key={type.id}
-              name={type.name}
+            <Option 
+              key={item.id}
+              name={item.name}
             />
     )
   })
@@ -43,12 +44,13 @@ export default function TypesList(props) {
   }
 
   return (
-    <section>
+    <section className="select-page">
       <h2>TypesList</h2>
-      <div>
+      <div className="type-list-wrapper">
         {types}
       </div>
       <SelectBtn />
+      <Link to="../ingredients">Or, select an ingredient</Link>
     </section>
   )
 }
