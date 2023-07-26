@@ -1,15 +1,23 @@
 import React from "react"
-import SelectPage from "./components/SelectPage"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Layout from "./components/Layout"
+import SelectPage from "./pages/SelectPage"
+import TypesList from "./pages/TypesList"
+import IngredientsList from "./pages/IngredientsList"
 
 export default function App() {
 
   return (
-      <div className="App">
-        <h1>Ideal Food Picker <i className="fa-solid fa-carrot"></i></h1>
-        <p></p>
-        <br />
-        <SelectPage />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<SelectPage />}/>
+            <Route path="types" element={<TypesList/>}/>
+            <Route path="ingredients" element={<IngredientsList/>}/>
+            <Route />
+          </Route>
+        </Routes>
+      </BrowserRouter>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import Type from "./Type";
 import { getTypes } from "../firebase";
+import SelectBtn from "../components/SelectBtn";
 
 export default function TypesList(props) {
   const [typesState, setTypesState] = React.useState([])
@@ -24,27 +25,7 @@ export default function TypesList(props) {
     loadTypes()
 }, [])
 
-  /* const typesData = [
-    {
-      id: 1,
-      name: "soupy"
-    },
-    {
-      id: 2,
-      name: "saucy"
-    },
-    {
-      id: 3,
-      name: "healthy"
-    },
-    {
-      id: 4,
-      name: "unhealthy"
-    },
-  ] */
-  console.log("typesState", typesState)
   const types = typesState.map(type => {
-    console.log("type", type)
     return (
             <Type 
               key={type.id}
@@ -52,8 +33,6 @@ export default function TypesList(props) {
             />
     )
   })
-  
-  console.log("types", types)
   
   if (loading) {
     return <h1>Loading...</h1>
@@ -69,7 +48,7 @@ export default function TypesList(props) {
       <div>
         {types}
       </div>
-      
+      <SelectBtn />
     </section>
   )
 }
