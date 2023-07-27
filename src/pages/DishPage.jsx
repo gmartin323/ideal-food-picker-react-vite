@@ -1,10 +1,10 @@
 import React from "react";
 import Dish from "./Dish";
 
-export default function DishPage() {
+export default function DishPage(props) {
   return (
     <section>
-      <Dish />
+      <Dish suggestedDish={props.suggestedDish}/>
     </section>
   )
 }

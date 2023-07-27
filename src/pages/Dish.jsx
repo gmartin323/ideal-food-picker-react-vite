@@ -1,7 +1,7 @@
 import React from "react"
 
-export default function Dish() {
+export default function Dish(props) {
   return (
-    <h1>Dish</h1>
+    <h1>{props.suggestedDish}</h1>
   )
 }

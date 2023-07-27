@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from "./components/Layout"
-import SelectPage from "./pages/SelectPage"
+import MainPage from "./pages/MainPage"
 import TypesList from "./pages/TypesList"
 import IngredientsList from "./pages/IngredientsList"
 
@@ -11,7 +11,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<SelectPage />}/>
+            <Route index element={<MainPage />}/>
             <Route path="types" element={<TypesList/>}/>
             <Route path="ingredients" element={<IngredientsList/>}/>
             <Route />

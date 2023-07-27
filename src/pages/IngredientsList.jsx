@@ -2,32 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom"
 import Option from "./Option";
 import { getIngredients } from "../firebase";
+import loadData from "../components/hooks/loadData"; 
 import SelectBtn from "../components/SelectBtn";
 
 export default function IngredientsList() {
 
-  const [ingredientsState, setIngredientsState] = React.useState([])
+  const [ingredients, setIngredients] = React.useState([])
   const [loading, setLoading] = React.useState(false)
   const [error, setError] = React.useState(null)
   
   React.useEffect(() => {
-    async function loadIngredients() {
-        setLoading(true)
-        try {
-            const data = await getIngredients()
-            console.log("data", data)
-            setIngredientsState(data)
-        } catch (err) {
-            setError(err)
-        } finally {
-            setLoading(false)
-        }
-    }
-
-    loadIngredients()
+    loadData(getIngredients, setIngredients, setLoading, setError)
 }, [])
 
-  const ingredients = ingredientsState.map(item => {
+  const ingredientsEl = ingredients.map(item => {
     return (
             <Option 
               key={item.id}
@@ -46,9 +34,8 @@ export default function IngredientsList() {
 
   return (
     <section className="select-page">
-      <h2>IngredientsList</h2>
-      <div className="type-list-wrapper">
-        {ingredients}
+      <div className="ingredient-list-wrapper list-wrapper">
+        {ingredientsEl}
       </div>
       <SelectBtn />
       <Link to="../types">Or, select a type</Link>
