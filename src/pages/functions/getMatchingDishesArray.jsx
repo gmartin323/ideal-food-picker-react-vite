@@ -16,6 +16,6 @@ export default function getMatchingDishesArray(dishes, selection) {
       })
       matchingDishesArray.push(hasIngredient)
     } 
-    
-    return matchingDishesArray      
+    // new array has been pushed into original array so must return the array at 0 index of original array
+    return matchingDishesArray[0]      
 }
