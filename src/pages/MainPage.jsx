@@ -76,7 +76,7 @@ export default function SelectPage() {
     <div>
       { showTypes 
           && 
-        <section className="select-page">
+        <section className="options-page">
           <OptionsPage option={types}/>
           <ConfirmBtn onClick={showDishPage}/>
         </section>
@@ -84,7 +84,7 @@ export default function SelectPage() {
 
       { showIngredients 
           && 
-        <section className="select-page">
+        <section className="options-page">
           <OptionsPage option={ingredients}/>
           <ConfirmBtn onClick={showDishPage}/>
         </section>
@@ -95,17 +95,17 @@ export default function SelectPage() {
 
       { !showTypes && !showIngredients && !suggestDish 
           &&
-        <div className="select-page">
+        <div className="initial-page">
           <div
             onClick={() => setShowTypes(true)} 
-            className="choice-box"
+            className="choice"
           >
             <h1>Choose a type!</h1>
           </div>
           <br/>
           <div 
             onClick={() => setShowIngredients(true)} 
-            className="choice-box"
+            className="choice"
           >
             <h1>Choose an ingredient!</h1>
           </div>
