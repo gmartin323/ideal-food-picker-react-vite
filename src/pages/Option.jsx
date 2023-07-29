@@ -3,7 +3,7 @@ import React from "react";
 export default function Option(props) {
 
   const styles = {
-    backgroundColor: props.selected ? "#D6DBF5" : "white"
+    backgroundColor: props.selected ? "#D6DBF5" : "#fdd1bf"
   }
 
   return (
