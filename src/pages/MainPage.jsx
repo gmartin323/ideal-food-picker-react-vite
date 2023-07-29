@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { getTypes } from "../firebase";
 import { getIngredients } from "../firebase";
 import { getDishes } from "../firebase"
