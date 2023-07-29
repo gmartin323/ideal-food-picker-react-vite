@@ -73,7 +73,7 @@ export default function SelectPage() {
 
   return (
 
-    <div>
+    <div className="main-page">
       { showTypes 
           && 
         <section className="options-page">

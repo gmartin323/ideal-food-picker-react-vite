@@ -3,7 +3,7 @@ import Dish from "./Dish";
 
 export default function DishPage(props) {
   return (
-    <section>
+    <section className="dish-page">
       <Dish suggestedDish={props.suggestedDish}/>
     </section>
   )
