@@ -11,7 +11,7 @@ export default function Dish(props) {
         <h1>{props.suggestedDish.name}</h1>
       </div>
       <div className="restaurant-container">
-        <p className="restaurant-name">{props.suggestedDish.restaurant}</p>
+        <span className="restaurant-name">{props.suggestedDish.restaurant}</span>
         <div className="restaurant-map">
           <iframe 
             src={props.suggestedDish.location}
