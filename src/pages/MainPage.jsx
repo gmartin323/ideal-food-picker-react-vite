@@ -98,7 +98,7 @@ export default function SelectPage() {
         <div className="initial-page">
           <div
             onClick={() => setShowTypes(true)} 
-            className="choice"
+            className="type-choice choice"
           >
             <h1>Choose a type!</h1>
           </div>
