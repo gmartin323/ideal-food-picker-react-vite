@@ -4,7 +4,7 @@ import Option from "./Option";
 export default function OptionsPage(props) {
 
   const columnStyle = (
-    props.option.length === 4 ? "four-column" : "six-column"
+    props.option.length === 4 ? "medium" : "wide"
   )
 
   const optionsEl = props.option.map(item => {

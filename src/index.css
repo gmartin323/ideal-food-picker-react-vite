@@ -37,13 +37,13 @@ h1 {
 .header {
   margin-top: 0.5rem;
   padding-bottom: 1rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #FF0051;
 }
 
 .main-page {
-  max-width: 600px;
-  outline: 1px dashed blue;
+  max-width: 900px;
+  /* outline: 1px dashed blue; */
 }
 
 .initial-page {
@@ -129,9 +129,9 @@ h1 {
 }
 
 .dish-page {
-  outline: purple 1px dashed;
+  /* outline: purple 1px dashed; */
   max-width: 900px;
-  
+  padding-bottom: 1rem;
 }
 
 .dish-card {
@@ -145,18 +145,29 @@ h1 {
 .dish-container {
   margin: 1rem;
   min-height: 60vh;
+  max-height: 90vh;
 }
 
 .dish-img {
   margin: 1rem;
-  height: 100px;
+  max-width: 80%;
+  max-height: 350px;
+  border-radius: 8px;
+}
+
+.dish-name {
+  font-size: 1.4rem;
 }
 
 .restaurant-container {
   display: grid;
   padding: 1rem;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 6fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-areas:
+      "name map"
+      "price address"
+      "btn btn";
   gap: 6px;
 }
 
@@ -167,6 +178,38 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.restaurant-map {
+  grid-area: map;
+}
+
+.dish-price {
+  grid-area: price;
+}
+
+.restaurant-name {
+  grid-area: name;
+}
+
+.restaurant-address {
+  grid-area: address;
+}
+
+.restart-btn {
+  border: 0;
+  border-radius: 0.25rem;
+  background: none;
+  background-color: #FF0051;
+  color: #fcf5eb;
+  font-family: system-ui, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  padding: 0.33rem 0.66rem;
+  margin: 1rem auto;
+  cursor: pointer;
+  grid-area: btn;
 }
 
 input,select {
@@ -204,23 +247,62 @@ and (min-device-width : 472px) {
     gap: 1rem;
     padding: 2rem;
   }
+
+  .header {
+    font-size: 2rem;
+    padding-bottom: 3rem;
+  }
 }
 
 @media only screen   
 and (min-device-width : 1024px) {
-  .four-column {
+  .medium {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  .six-column {
+  .wide {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 
+  .dish-page {
+    max-width: 1100px;
+  }
+
+  .dish-card {
+    flex-direction: row;
+    max-width: 1100px;
+  }
+
+  .dish-container {
+    flex-basis: 50%;
+  }
+
   .restaurant-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 4fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 4fr 1fr 1fr;
+    grid-template-areas:
+      "map map map"
+      "name address price"
+      ". btn .";
     gap: 1rem;
-    padding: 2rem;
+    padding: 0;
+    margin-top: 2rem;
+    flex-basis: 50%;
+    max-height: calc(350px + 1fr);
+  }
+
+  .restaurant-map {
+    max-height: 100%;
+  }
+
+  .restaurant-map iframe {
+    height: 100%;
+  }
+
+  .restart-btn {
+    align-self: center;
+    grid-area: btn;
+    width: 50%;
   }
 }
 

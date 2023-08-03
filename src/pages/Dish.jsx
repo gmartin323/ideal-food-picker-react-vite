@@ -4,11 +4,15 @@ export default function Dish(props) {
   
   console.log(props.suggestedDish.location)
 
+  function refreshPage(){ 
+    window.location.reload()
+  }
+
   return (
     <div className="dish-card">
       <div className="dish-container">
-        <div className="dish-img">Img</div>
-        <h1>{props.suggestedDish.name}</h1>
+        <img className="dish-img" src="src\images\dish\Bánh Mì Chào Nam.jpg" />
+        <h1 className="dish-name">{props.suggestedDish.name}</h1>
       </div>
       <div className="restaurant-container">
         <span className="restaurant-name">{props.suggestedDish.restaurant}</span>
@@ -26,8 +30,9 @@ export default function Dish(props) {
             referrerPolicy="no-referrer-when-downgrade"> 
           </iframe>
         </div>  
-        <p className="dish-price">{props.suggestedDish.price}</p>
+        <p className="dish-price">{props.suggestedDish.price}₫</p>
         <p className="restaurant-address">{props.suggestedDish.address}</p>
+        <button className="restart-btn" onClick={refreshPage}>Start Again</button>
       </div>
     </div>
   )
