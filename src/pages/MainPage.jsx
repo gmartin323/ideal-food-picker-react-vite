@@ -10,7 +10,7 @@ import ConfirmBtn from "../components/ConfirmBtn"
 
 export default function SelectPage() {
 
-  const [selection, setSelection] = React.useState("saucy")
+  const [selection, setSelection] = React.useState(null)
   const [types, setTypes] = React.useState([])
   const [showTypes, setShowTypes] = React.useState(false)
   const [ingredients, setIngredients] = React.useState([])
@@ -28,9 +28,10 @@ export default function SelectPage() {
     loadData(getDishes, setDishes, setLoading, setError)
   }, [])
 
-  if (dishes) {
+  /* if (dishes) {
     React.useEffect(() => {
       const matchingDishesArray = getMatchingDishesArray(dishes, selection)
+      console.log(matchingDishesArray)
 
       if (matchingDishesArray.length === 1) {
         setSuggestedDish(matchingDishesArray)
@@ -40,13 +41,30 @@ export default function SelectPage() {
       }
       
     }, [dishes])
+  } */
+
+
+  function getSuggestedDish() {
+    const matchingDishesArray = getMatchingDishesArray(dishes, selection)
+      console.log(matchingDishesArray)
+
+      if (matchingDishesArray.length === 1) {
+        setSuggestedDish(matchingDishesArray[0])
+      } else {
+        const randomNumber = Math.floor(Math.random() * matchingDishesArray.length)
+        setSuggestedDish(matchingDishesArray[randomNumber])
+      }
+  }
+
+  function handleClick(event, id) {
+    console.log("target", event.target)
+    setSelection(id)
   }
 
   function showDishPage() {
+    getSuggestedDish()
     setSuggestDish(true)
   }
-
-  console.log(suggestDish)
 
   if (loading) {
     return <h1>Loading...</h1>
@@ -77,7 +95,7 @@ export default function SelectPage() {
       { showTypes 
           && 
         <section className="options-page">
-          <OptionsPage option={types}/>
+          <OptionsPage option={types} handleClick={handleClick}/>
           <ConfirmBtn onClick={showDishPage}/>
         </section>
       }
@@ -85,7 +103,7 @@ export default function SelectPage() {
       { showIngredients 
           && 
         <section className="options-page">
-          <OptionsPage option={ingredients}/>
+          <OptionsPage option={ingredients} handleClick={handleClick}/>
           <ConfirmBtn onClick={showDishPage}/>
         </section>
       }
