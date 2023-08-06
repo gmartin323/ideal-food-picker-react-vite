@@ -2,7 +2,7 @@ import React from "react";
 import Option from "./Option"; 
 
 export default function OptionsPage(props) {
-
+  
   // console.log("option", props)
 
   const columnStyle = (
@@ -17,7 +17,7 @@ export default function OptionsPage(props) {
               name={item.name}
               img={item.img}
               handleClick={props.handleClick}
-              selected={props.selected}
+              selection={props.selection}
             />
     )
   })

@@ -97,6 +97,7 @@ h1 {
   padding: 1.6em;
   font-size: 1.4rem;
   font-weight: 600;
+  background-color: #fdd1bf;
   color: #ff9a83;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 6px;
@@ -111,10 +112,9 @@ h1 {
 }
 
 .confirm-btn {
-  width: 80%;
   max-width: 300px;
   margin: 0 auto;
-  padding: 1.5rem 2rem;
+  padding: 2rem 2.75rem;
   font-size: 1.5rem;
   background-color: #FF0051;
   color: #fcf5eb;
@@ -235,10 +235,6 @@ a, a:visited, a:hover, a:active {
   color: inherit;
 }
 
-.selected {
-  color: red
-}
-
 /* MEDIA QUERIES */
 
 @media only screen   
@@ -297,6 +293,18 @@ and (min-device-width : 1024px) {
 
 .new-line {
   white-space: pre-line;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #D7DCDE;
+  color: whitesmoke;
+}
+
+.selected {
+  background-color: #FF0051;
+  color: #fcf5eb;
 }
 
 /* 

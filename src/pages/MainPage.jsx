@@ -46,18 +46,16 @@ export default function SelectPage() {
 
   function getSuggestedDish() {
     const matchingDishesArray = getMatchingDishesArray(dishes, selection)
-      console.log(matchingDishesArray)
 
-      if (matchingDishesArray.length === 1) {
-        setSuggestedDish(matchingDishesArray[0])
-      } else {
-        const randomNumber = Math.floor(Math.random() * matchingDishesArray.length)
-        setSuggestedDish(matchingDishesArray[randomNumber])
-      }
+    if (matchingDishesArray.length === 1) {
+      setSuggestedDish(matchingDishesArray[0])
+    } else {
+      const randomNumber = Math.floor(Math.random() * matchingDishesArray.length)
+      setSuggestedDish(matchingDishesArray[randomNumber])
+    }
   }
 
   function handleClick(event, id) {
-    console.log("target", event.target)
     setSelection(id)
   }
 
@@ -74,15 +72,6 @@ export default function SelectPage() {
       return <h1>There was an error: {error.message}</h1>
   }
 
-  /* if (showTypes) {
-    return (
-      <section className="select-page">
-        <OptionsPage option={types}/>
-        <ConfirmBtn onClick={showDishPage}/>
-      </section>
-    )
-  } */
-
   if (suggestDish) {
     return (
       <DishPage suggestedDish={suggestedDish}/>
@@ -95,16 +84,16 @@ export default function SelectPage() {
       { showTypes 
           && 
         <section className="options-page">
-          <OptionsPage option={types} handleClick={handleClick}/>
-          <ConfirmBtn onClick={showDishPage}/>
+          <OptionsPage option={types} handleClick={handleClick} selection={selection}/>
+          <ConfirmBtn onClick={showDishPage} disabled={!selection ? true : false}/>
         </section>
       }
 
       { showIngredients 
           && 
         <section className="options-page">
-          <OptionsPage option={ingredients} handleClick={handleClick}/>
-          <ConfirmBtn onClick={showDishPage}/>
+          <OptionsPage option={ingredients} handleClick={handleClick} selection={selection}/>
+          <ConfirmBtn onClick={showDishPage} disabled={!selection ? true : false}/>
         </section>
       }
 
