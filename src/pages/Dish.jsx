@@ -5,8 +5,8 @@ export default function Dish(props) {
   function refreshPage(){ 
     window.location.reload()
   }
-  
-  const imgSrc = `src/images/dish/${props.suggestedDish.img}`
+  const imgSrc = `src/images/dish/Bánh-Mì-Chào-Nam.jpg`
+  // const imgSrc = `src/images/dish/${props.suggestedDish.img}`
   const restaurantName = `at \n ${props.suggestedDish.restaurant} `
 
   return (
