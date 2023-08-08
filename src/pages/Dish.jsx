@@ -22,7 +22,9 @@ export default function Dish(props) {
       <div className="dish-card">
         <div className="dish-container">
           {loaded ? null : (
-            <LoadingSpinner />
+            <div className="dish-img center">
+              <LoadingSpinner />
+            </div>
           )}
           <img
             className="dish-img"

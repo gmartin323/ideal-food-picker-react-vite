@@ -150,6 +150,7 @@ Link {
   max-width: 400px;
   max-height: 400px;
   border-radius: 8px;
+  padding: 0.6rem;
 }
 
 .dish-name {
@@ -338,6 +339,11 @@ and (min-device-width : 1024px) {
   color: #fcf5eb;
 }
 
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* 
 site-background: #fcf5eb
