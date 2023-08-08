@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 *,
 *::before,
 *::after {
@@ -9,7 +7,7 @@
 }
 
 html {
-  font-family: 'Poppins',sans-serif;
+  font-family: 'PT Serif', serif;
 }
 
 body {
@@ -22,7 +20,13 @@ body {
 /* TYPOGRAPHY */
 
 h1 {
+  font-family: 'Rufina', sans-serif;
   font-size: 2rem;
+}
+
+Link {
+  font-family: 'Rufina', sans-serif;
+  font-weight: 700;
 }
 
 /* LAYOUT */
@@ -39,6 +43,7 @@ h1 {
   padding-bottom: 1rem;
   font-size: 1.6rem;
   color: #FF0051;
+  cursor: pointer;
 }
 
 .main-page {
@@ -94,12 +99,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.6em;
-
-  /* button does not share font with rest of site */
-  /* font: inherit; */ 
-  
-  font-size: 1.4rem;
+  padding: 1.6em;  
+  font-size: 1rem;
   font-weight: 600;
   background-color: #fdd1bf;
   color: #ff9a83;
@@ -117,16 +118,6 @@ h1 {
 }
 
 .confirm-btn {
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 2rem 2.75rem;
-  font-size: 1.5rem;
-  background-color: #FF0051;
-  color: #fcf5eb;
-  border-radius: 16px;
-  border-style: none;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  cursor: pointer;
   position: fixed;
   bottom: 1rem;
   right: 0;
@@ -204,19 +195,21 @@ h1 {
 }
 
 .restart-btn {
-  border: 0;
-  border-radius: 0.25rem;
-  background: none;
+  grid-area: btn;
+}
+
+.btn {
+  max-width: 300px;
+  margin: 1rem auto;
+  padding: 0.75rem 1.5rem;
+  font-family: inherit;
+  font-size: 1.2rem;
   background-color: #FF0051;
   color: #fcf5eb;
-  font-family: system-ui, sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  white-space: nowrap;
-  padding: 0.33rem 0.66rem;
-  margin: 1rem auto;
+  border-style: none;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
-  grid-area: btn;
 }
 
 input,select {
@@ -238,6 +231,31 @@ a {
 
 a, a:visited, a:hover, a:active {
   color: inherit;
+}
+
+.spinner-container {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes spinner {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 8px solid #fdd1bf;
+  border-top: 8px solid #ff9a83;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
 }
 
 /* MEDIA QUERIES */
@@ -275,8 +293,16 @@ and (min-device-width : 1024px) {
   }
 
   .restaurant-container {
+    grid-template-rows: 1fr 6fr 1fr 1fr;
+    grid-template-areas:
+      ". . . "
+      "map map map"
+      "name address address"
+      ". . .";
     gap: 1rem;
     max-width: 400px;
+    flex-basis: 50%;
+    font-size: 1rem;
   }
 
   .restaurant-map {
@@ -284,7 +310,7 @@ and (min-device-width : 1024px) {
   }
 
   .restaurant-map iframe {
-    height: 90%;
+    height: 100%;
     width: 100%;
   }
 

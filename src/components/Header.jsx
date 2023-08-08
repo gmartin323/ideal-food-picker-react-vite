@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <Link to="/" className="site-logo" onClick={refreshPage}>Ideal Food Picker <i className="fa-solid fa-carrot"></i></Link>
+      <h1 to="/" className="site-logo" onClick={refreshPage}>Ideal Food Picker <i className="fa-solid fa-carrot"></i></h1>
     </header>
   )
 }

@@ -7,6 +7,7 @@ import getMatchingDishesArray from "./functions/getMatchingDishesArray"
 import OptionsPage from "./OptionsPage"
 import DishPage from "./DishPage"
 import ConfirmBtn from "../components/ConfirmBtn"
+import LoadingSpinner from "../components/LoadingSpinner"
 
 export default function SelectPage() {
 
@@ -65,7 +66,7 @@ export default function SelectPage() {
   }
 
   if (loading) {
-    return <h1>Loading...</h1>
+    return <LoadingSpinner />
   }
 
   if (error) {

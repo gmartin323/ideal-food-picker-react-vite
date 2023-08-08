@@ -2,7 +2,7 @@ import React from "react"
 
 export default function Dish(props) {
   
-  
+  console.log(props)
   function refreshPage(){ 
     window.location.reload()
   }
@@ -44,7 +44,7 @@ export default function Dish(props) {
           <p className="restaurant-address">{props.suggestedDish.address}</p>
         </div>
       </div>
-      <button className="restart-btn" onClick={refreshPage}>Start Again</button>
+      <button className="btn restart-btn" onClick={refreshPage}>Start Again</button>
     </div>
   )
 }

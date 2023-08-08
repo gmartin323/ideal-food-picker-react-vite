@@ -9,7 +9,7 @@ export default function Option(props) {
   return (
     <div className={style} onClick={() => props.handleClick(event, props.id)}>
       {/* {props.img ? <img src={imgSrc} /> : <p>{props.name}</p>}  */}
-      <p>{props.name}</p>
+      <h2>{props.name}</h2>
     </div>
   )
 }
