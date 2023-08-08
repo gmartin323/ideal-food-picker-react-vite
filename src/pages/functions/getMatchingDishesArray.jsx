@@ -4,8 +4,6 @@ export default function getMatchingDishesArray(dishes, selection) {
   const matchingDishesArray = []
   const currentDay = getCurrentDay()
 
-  console.log(dishes)
-
   // filter out dishes at restaurants that are closed on the current day
   const availableDishes = dishes.filter(function (dish) {
     return dish.closedDay !== currentDay
@@ -27,6 +25,5 @@ export default function getMatchingDishesArray(dishes, selection) {
       matchingDishesArray.push(hasIngredient)
     } 
     // new array has been pushed into original array so must return the array at 0 index of original array
-    console.log(matchingDishesArray)
     return matchingDishesArray[0]      
 }
