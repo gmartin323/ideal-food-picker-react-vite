@@ -1,24 +1,34 @@
 import React from "react"
+import LoadingSpinner from "../components/LoadingSpinner"
 
 export default function Dish(props) {
-  
+
+  const [loaded, setLoaded] = React.useState(false);
+
   function refreshPage(){ 
     window.location.reload()
   }
 
   // const imgSrc = `src/images/dish/Bánh-Mì-Chào-Nam.jpg`
   const imgSrc = `images/dish/${props.suggestedDish.img}`
-  console.log("image-loc", props.suggestedDish.img)
-  console.log("imgSrc", imgSrc)
   const restaurantName = `at \n ${props.suggestedDish.restaurant} `
+
+  /* if (loading) {
+    return <LoadingSpinner />
+  } */
 
   return (
     <div>
       <div className="dish-card">
         <div className="dish-container">
+          {loaded ? null : (
+            <LoadingSpinner />
+          )}
           <img
             className="dish-img"
+            style={loaded ? {} : { display: 'none' }}
             src={imgSrc}
+            onLoad={() => setLoaded(true)}
           />
           <h1 className="dish-name">{props.suggestedDish.name}</h1>
           <p className="dish-price">{props.suggestedDish.price}₫</p>
