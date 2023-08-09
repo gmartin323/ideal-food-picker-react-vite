@@ -3,7 +3,7 @@ import LoadingSpinner from "../components/LoadingSpinner"
 
 export default function Dish(props) {
 
-  const [imgLoaded, setImgLoaded] = React.useState(false);
+  const [loaded, setLoaded] = React.useState(false);
   
   function refreshPage(){ 
     window.location.reload()
@@ -17,28 +17,38 @@ export default function Dish(props) {
     <div>
       <div className="dish-card">
         <div className="dish-container">
-          {imgLoaded ? null : (
+          {loaded ? null : (
             <div className="dish-img center">
               <LoadingSpinner />
             </div>
           )}
           <img
             className="dish-img"
-            style={imgLoaded ? {} : { display: 'none' }}
+            style={loaded ? {} : { display: 'none' }}
             src={imgSrc}
-            onLoad={() => setImgLoaded(true)}
+            onLoad={() => setLoaded(true)}
           />
           <h1 className="dish-name">{props.suggestedDish.name}</h1>
           <p className="dish-price">{props.suggestedDish.price}₫</p>
         </div>
         <div className="restaurant-container">
           <div className="restaurant-map">
+            {loaded ? null : (
+              <div className="dish-img center">
+                <LoadingSpinner />
+              </div>
+            )}
             <iframe 
               className="dish-img"
-              style={{
+              style={loaded ? 
+                {
                   borderRadius: "8px",
                   borderStyle: "none"
-                }}
+                } : 
+                { 
+                  display: 'none' 
+                }                
+              }
               src={props.suggestedDish.location}
               width="100%"
               height= "80%"
