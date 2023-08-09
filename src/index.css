@@ -141,8 +141,7 @@ Link {
 
 .dish-container {
   align-self: center;
-  min-height: 70vh;
-  max-height: 90vh;
+  height: 70vh;
   max-width: 425px;
 }
 
@@ -161,7 +160,6 @@ Link {
 .restaurant-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   align-self: first baseline;
   height: 400px;
@@ -302,6 +300,7 @@ and (min-device-width : 1024px) {
   .restaurant-container {
     max-width: 400px;
     flex-basis: 50%;
+    justify-content: center;
   }
 
   .restaurant-map {
