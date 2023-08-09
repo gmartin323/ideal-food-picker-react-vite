@@ -147,10 +147,10 @@ Link {
 }
 
 .dish-img {
+  width: 95%;
   max-width: 400px;
   max-height: 400px;
   border-radius: 8px;
-  padding: 0.6rem;
 }
 
 .dish-name {
@@ -159,21 +159,18 @@ Link {
 }
 
 .restaurant-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 4fr 1fr;
-  grid-template-areas:
-  "map map map"
-  "name address address";
-  gap: 6px;
-  margin-top: 1rem;
-  max-width: 320px;
-  max-height: calc(400px - 3.4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: first baseline;
+  height: 400px;
 }
 
-.restaurant-name,
-.restaurant-map,
+
 .dish-price,
+.restaurant-map,
+.restaurant-name,
 .restaurant-address {
   display: flex;
   align-items: center;
@@ -181,19 +178,23 @@ Link {
 }
 
 .restaurant-map {
-  grid-area: map;
+  height: 60%;
 }
 
-.restaurant-map iframe {
-  width: 70%;
+.restaurant-info {
+  display: flex;
+  width: 95%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  gap: 1rem;
 }
 
 .restaurant-name {
-  grid-area: name;
+  flex-basis: 40%;
 }
 
 .restaurant-address {
-  grid-area: address;
+  flex-basis: 60%;
 }
 
 .restart-btn {
@@ -295,24 +296,17 @@ and (min-device-width : 1024px) {
   }
 
   .restaurant-container {
-    grid-template-rows: 6fr 1fr;
-    grid-template-areas:
-      "map map map"
-      "name address address";
-    gap: 1rem;
-    margin-top: 0;
     max-width: 400px;
     flex-basis: 50%;
-    font-size: 1rem;
   }
 
   .restaurant-map {
     max-height: 100%;
+    width: 100%;
   }
 
   .restaurant-map iframe {
-    /* height: 100%; */
-    width: 100%;
+    width: 95%;
   }
 
   .restart-btn {

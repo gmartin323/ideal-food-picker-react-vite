@@ -36,9 +36,6 @@ export default function Dish(props) {
           <p className="dish-price">{props.suggestedDish.price}₫</p>
         </div>
         <div className="restaurant-container">
-          <p className="restaurant-name new-line">
-            {restaurantName}
-          </p>
           <div className="restaurant-map">
             <iframe 
               src={props.suggestedDish.location}
@@ -62,9 +59,13 @@ export default function Dish(props) {
               borderStyle: "none"}
             }
             allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe> */}
-          </div>  
-          
-          <p className="restaurant-address">{props.suggestedDish.address}</p>
+          </div>
+          <div className="restaurant-info">
+            <p className="restaurant-name new-line">
+              {restaurantName}
+            </p>
+            <p className="restaurant-address">{props.suggestedDish.address}</p>
+          </div>            
         </div>
       </div>
       <button className="btn restart-btn" onClick={refreshPage}>Start Again</button>
