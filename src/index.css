@@ -308,6 +308,8 @@ and (min-device-width : 1024px) {
     height: 400px;
     flex-basis: 50%;
     justify-content: center;
+    padding: 0;
+    gap: 0;
   }
 
   .restaurant-map {
