@@ -276,6 +276,11 @@ and (min-device-width : 472px) {
 
 @media only screen   
 and (min-device-width : 1024px) {
+  .header {
+    margin-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
   .medium {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
